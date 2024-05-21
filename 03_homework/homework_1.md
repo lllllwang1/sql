@@ -22,7 +22,8 @@ By default, DB Browser for SQLite has three windows, with four tabs in the main 
 	- Switch this to DB Schema tab (very bottom)
 
 Your screen should look like this (or very similar)
-![db_browser_for_sqlite.png](./images/01_db_browser_for_sqlite.png)
+
+![homework1](https://github.com/lllllwang1/sql/assets/116328232/ffb09c44-2f0b-430b-b963-587d6a384826)
 
 #### 3) The farmersmarket.db
 There are 10 tables in the Main Window:
