@@ -59,6 +59,6 @@ vendor_id field they both have in common, and sorts the result by vendor_name, t
 SELECT *
 FROM vendor as v  INNER JOIN vendor_booth_assignments as vba
 on v.vendor_id = vba.vendor_id
-ORDER by 
+ORDER by
 vendor_name,
 market_date;
