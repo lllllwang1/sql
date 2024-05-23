@@ -52,3 +52,9 @@ where times_visit = 1;
 
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
+
+SELECT product_id,
+customer_id,
+market_date,
+count(*) OVER (PARTITION by customer_id, product_id) as purchasenumbs
+FROM customer_purchases;
