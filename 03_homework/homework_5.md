@@ -9,6 +9,23 @@
 
 **HINT**: Be sure you select only relevant columns and rows. Remember, CROSS JOIN will explode your table rows, so CROSS JOIN should likely be a subquery. Think a bit about the row counts: how many distinct vendors, product names are there (x)? How many customers are there (y). Before your final group by you should have the product of those two queries (x\*y). 
 
+WITH VendorCustomerCross AS (
+    SELECT v.vendor_id, v.vendor_name, cp.product_id, cp.cost_to_customer_per_qty, p.product_name
+    FROM vendor v
+    JOIN customer_purchases cp ON v.vendor_id= cp.vendor_id
+    JOIN product p ON cp.product_id = p.product_id
+	CROSS JOIN customer c
+),
+TotalRevenue AS (
+    SELECT 
+        vendor_name,
+        product_name,
+        SUM(5 * cost_to_customer_per_qty) AS TotalRevenue
+    FROM VendorCustomerCross
+    GROUP BY vendor_name, product_name
+)
+SELECT vendor_name, product_name, TotalRevenue
+FROM TotalRevenue;
 
 # INSERT
 1. Create a new table "product_units". This table will contain only products where the `product_qty_type = 'unit'`. It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  Name the timestamp column `snapshot_timestamp`.
