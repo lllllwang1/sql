@@ -38,6 +38,16 @@ You can either display all rows in the customer_purchases table, with the counte
 | Habanero Peppers - Organic | Organic     |
 
 **HINT**: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. 
+SELECT 
+    product_name,
+    TRIM(
+        CASE 
+            WHEN INSTR(product_name, '-') > 0 
+            THEN SUBSTR(product_name, INSTR(product_name, '-') + 1)
+            ELSE NULL
+        END
+    ) AS product_description
+FROM product;
 
 # UNION
 1. Using a UNION, write a query that displays the market dates with the highest and lowest total sales.
