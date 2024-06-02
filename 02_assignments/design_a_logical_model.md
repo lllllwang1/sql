@@ -3,19 +3,23 @@
 ## Question 1
 Create a logical model for a small bookstore. 📚
 
-At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
+At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).<img width="847" alt="截屏2024-06-01 23 11 04" src="https://github.com/lllllwang1/sql/assets/116328232/50ae9da4-9cbe-451a-b514-88458d4f4963">
+
 
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+<img width="847" alt="截屏2024-06-01 23 15 12" src="https://github.com/lllllwang1/sql/assets/116328232/231503e4-1907-4ea1-9b9a-1ca711154ad0">
 
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
-
+Type 1 will overwrite the existing value with the new value and does not retain history.
+Type 2 will add a new row for the new value and maintains the existing row for historical and reporting purposes.
 _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
 ```
-Your answer...
+Type 1 (overwrite) has fewer privacy concerns because it retains only the latest address, reducing the risk of exposing historical data.
+Type 2 (retain changes) can raise privacy issues because it keeps a history of all addresses, which could be sensitive if exposed.
 ```
 
 ## Question 4
@@ -23,7 +27,9 @@ Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
-Your answer...
+One of the differences between the Schema and my ERD is address handling. Schema use separate table for different types of address. The other different is product variability. The Schema has a more complex product structure with product models, subcategories, etc.
+
+I will consider adding more granularity to the product information, similar to the Schema, if the bookstore model needs to handle more detailed product categorization. 
 ```
 
 # Criteria
@@ -44,9 +50,9 @@ Your answer...
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `model-design`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x ] Create a branch called `model-design`.
+- [x ] Ensure that the repository is public.
+- [x ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [ x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack at `#cohort-3-help`. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
